@@ -224,11 +224,11 @@ then
 	then
 	    $CMD krakenuniq --threads $CPUS --db $KUDB --preload-size ${RAM}G --output kuniq.output.txt \
 	        --report-file kuniq.report.txt Unmapped_filt.R1.fastq.gz &> kuniq.log
-	    $CMD pigz -f kuniq.output.txt
+	    $CMD pigz -p$CPUS -f kuniq.output.txt
 	else 
 	    $CMD krakenuniq --threads $CPUS --db $KUDB --preload-size ${RAM}G --output kuniq.output.txt \
 	        --report-file kuniq.report.txt --paired Unmapped_filt.R1.fastq.gz Unmapped_filt.R2.fastq.gz &> kuniq.log
-	    $CMD pigz -f kuniq.output.txt
+	    $CMD pigz -p$CPUS -f kuniq.output.txt
 	fi
 	
 	## KrakenUniq quits with no error and no output in some cases, still not sure why. Just re-run the job.  
