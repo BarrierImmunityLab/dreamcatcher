@@ -244,7 +244,7 @@ then
     ## if no strains passed the filtering, we quit, but we DO generate a mapstat.tsv (mostly filled with zeroes).  
 	if [[ ! -s detected_strains.list ]]
 	then
-	    >&2 echo "ERROR: no strains have passed the filtering threshold at STEP 3! Cleaning up and exiting .." 
+	    >&2 echo "WARNING: no strains have passed the filtering threshold at STEP 3! Cleaning up and exiting .." 
 
         echo "==> ["$(date +'%d-%b-%Y, %T')"] STEP 4: Tidy up the output directories .." 
         $SDIR/organise_output_dir.sh $BULK $BAM 
@@ -252,7 +252,7 @@ then
         $SDIR/calculate_mapstats.sh $TAG > mapstats.tsv
 	    
         echo "ALL DREAMCATCHER PROCESSING IS DONE - 0 STRAINS WERE DETECTED! BYE!!!"
-        exit 1
+        exit 0
     fi
 
 	## step 4: now, make a combined genome and GFF files for all strains identified by KrakenUniq
@@ -320,7 +320,7 @@ then
 	
 	if [[ ! -s filtered.summary.tsv ]]
 	then
-	    >&2 echo "ERROR: no strains have passed the filtering threshold at STEP 11! Cleaning up and exiting .." 
+	    >&2 echo "WARNING: no strains have passed the filtering threshold at STEP 11! Cleaning up and exiting .." 
 
         echo "==> ["$(date +'%d-%b-%Y, %T')"] STEP 13: Tidy up the output directories .." 
         $SDIR/organise_output_dir.sh $BULK $BAM 
@@ -328,7 +328,7 @@ then
         $SDIR/calculate_mapstats.sh $TAG > mapstats.tsv
 	    
         echo "ALL DREAMCATCHER PROCESSING IS DONE - 0 STRAINS PASSED FILTERING! BYE!!!"
-        exit 1
+        exit 0
     fi
 fi
 
