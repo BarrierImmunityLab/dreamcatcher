@@ -36,7 +36,7 @@ then
   echo "  --sif [X]          Path to the Dreamcatcher Singularity image (default"
   echo "                     '/nfs/cellgeni/singularity/images/dreamcatcher.sif')"
   echo "  --cmd [X]          Wrapper command prefixed to every tool call without the image path"
-  echo "                     (default: 'singularity run --bind /nfs,/lustre,/software')."
+  echo "                     (default 'singularity run --bind /nfs,/lustre,/software')."
   echo "  --refdata-root [X] Root of the reference data directory (default"
   echo "                     '/nfs/cellgeni/refdata_dreamcatcher'). All reference paths (NCBI"
   echo "                     genomes, KrakenUniq DB, T2T+phiX decoy index) are derived from it"
